@@ -1,4 +1,11 @@
 {
+  "name": "IsunaBot",
+  "version": "0.1.0",
+  "description": "Hatsuse Isuna bot discord",
+  "main": "main.js",
+  "repository": "https://github.com/Tokiwadai-Railgun/IsunaBot.git",
+  "author": "Tokiwadai-Railgun <arthur.scheidbach@life.fr>",
+  "license": "MIT",
   "dependencies": {
     "discord.js": "discordjs/discord.js"
   }
