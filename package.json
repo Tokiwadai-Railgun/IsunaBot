@@ -20,8 +20,8 @@
       "quotes": "off",
       "indent": ["error", 2],
       "curly": "off",
-      "eol-last": "off"
-      
+      "eol-last": "off",
+      "no-trailing-spaces": "off"
       
     }
   }
