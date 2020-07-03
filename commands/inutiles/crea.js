@@ -11,5 +11,6 @@ module.exports.help = {
   description: 'dis qui est son créateur',
   aloases: ['créateur'],
   cooldown: 5,
+  permission: false,
   args: false
 };

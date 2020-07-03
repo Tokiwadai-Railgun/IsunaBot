@@ -8,5 +8,6 @@ module.exports.help = {
   aliases: ['répète'],
   usage: '<Votre_Message>',
   cooldown: 5,
+  permission: false,
   args: true
 };

@@ -9,5 +9,6 @@ module.exports.help = {
   aliases: ['infoUtilisateur'],
   usage: '<La personne que vous voulez vérifier>',
   cooldown: 5,
+  permission: false,
   args: true
 };

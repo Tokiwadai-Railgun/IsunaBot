@@ -32,7 +32,7 @@ Isuna.on("message", message => {
   const command = Isuna.commands.get(commandName) || Isuna.commands.find(cmd => cmd.help.aliases && cmd.help.aliases.includes(commandName));
   if (!command) return;
 
-  if (command.help.args && !args.lenght) {
+  if (command.help.args && !args.length) {
     let noArgsReply = `Il faut que tu ajoute un argument à cette commande, ${message.author}`;
 
     if (command.help.usage) noArgsReply += `\n Voici comment utiliser la commande : \`\` isu ${command.help.name} ${command.help.usage}\`\``;
@@ -70,7 +70,7 @@ Isuna.on("ready", () => {
   const isunaLog = Isuna.channels.cache.find(ch => ch.name === 'isuna-log');
   if (!isunaLog) return;
 
-  isunaLog.send("J'ai reçus une mise à jour, demande à mon créateur pour plus de précision sur mas maj.");
+  isunaLog.send("J'ai reçu une mise à jour, demande à mon créateur pour plus de précision sur mas maj.");
   console.log(`${Isuna.user.tag}dit : Je suis prête`);
   // accueil.send("Le bot à été mis à jour");
 });

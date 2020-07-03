@@ -13,7 +13,9 @@ module.exports.run = (Isuna, message, args) => {
       { name: 'crea', value: 'dis qui est le créateur du bot', inline: 'true' },
       { name: 'ping', value: 'Répond pong tout simplement', inline: 'true' },
       { name: 'userinfo', value: 'C\'est une commande inutile, elle permet d\'afficher le tag d\'une personne mentionnée', inline: 'true' },
-      { name: "couleur", value: "Permet de choisire une couleure en faisant isu couleur <nom de la couleur avec première lettre en maj> " }
+      { name: "couleur", value: "Permet de choisire une couleure en faisant isu couleur <nom de la couleur avec première lettre en maj> " },
+      { name: 'roleadd', value: '/!\\ Commande reservée aux modérateur et + /!\\ petmet de s\'ajouter un rôle' },
+      { name: 'roleremove', value: '/!\\ également reservée aux administrateurs /!\\ permet de se retirer un rôle' }
     )
     .setTimestamp()
     .setFooter("Gardez bien à l'esprit que le bot est toujours en développement");
@@ -25,6 +27,7 @@ module.exports.help = {
   name: 'help',
   description: 'affiche la liste de toutes les commandes',
   aliases: ['h'],
+  permission: false,
   cooldown: 5,
   args: false
 };

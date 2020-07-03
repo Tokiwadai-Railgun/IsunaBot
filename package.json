@@ -21,8 +21,8 @@
       "indent": ["error", 2],
       "curly": "off",
       "eol-last": "off",
-      "no-trailing-spaces": "off"
-      
+      "no-trailing-spaces": "off",
+      "prefer-destructuring": "off"      
     }
   }
 }

@@ -23,5 +23,6 @@ module.exports.help = {
   descritpion: "envoie un embed",
   aliases: ['embed'],
   cooldown: 5,
+  permission: false,
   args: false
 };

@@ -8,5 +8,6 @@ module.exports.help = {
   description: 'repond pong',
   aliases: ['ping'],
   cooldown: 5,
+  permission: false,
   args: false
 };
