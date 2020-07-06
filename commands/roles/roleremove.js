@@ -24,6 +24,7 @@ module.exports.help = {
   description: 'remove un rôle',
   aliases: ['rolesuppr'],
   cooldown: 5,
+  categorie: 'roles',
   permission: true,
   permissionNeeded: 'MANAGE_ROLES',
   usage: "<Le rôle>",

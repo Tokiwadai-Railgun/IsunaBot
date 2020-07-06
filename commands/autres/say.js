@@ -7,6 +7,7 @@ module.exports.help = {
   description: 'permet de parler à la place du bot',
   aliases: ['répète'],
   usage: '<Votre_Message>',
+  categorie: 'autres',
   cooldown: 5,
   permission: false,
   args: true

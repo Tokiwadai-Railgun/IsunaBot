@@ -26,6 +26,7 @@ module.exports.help = {
   description: 'give un role',
   aliases: ['rolegrabb'],
   cooldown: 5,
+  categorie: 'roles',
   permission: true,
   permissionNeeded: ['MANAGE_ROLE'],
   usage: "<Le rôle>",

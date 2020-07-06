@@ -20,10 +20,11 @@ module.exports.run = (Isuna, message, args) => {
 };
 
 module.exports.help = {
-  name: 'couleure',
+  name: 'couleur',
   description: 'give une couleur',
   aliases: ['color'],
   cooldown: 5,
+  categorie: 'roles',
   permission: false,
   usage: "<La couleur>",
   args: true

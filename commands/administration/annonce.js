@@ -1,26 +1,27 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = (Isuna, message, args) => {
+  const annonceChannelPing = message.mentions.channels.first();
+  const channel = message.guild.channels.cache.get(annonceChannelPing.id);
   const annonce = new MessageEmbed()
     .setColor("#f500ff")
     .setTitle("Annonce")
-    .setDescription(args.join(" "))
+    .setDescription(args.splice(1).join(" "))
     .setThumbnail(message.author.displayAvatarURL())
     .setTimestamp()
     .setFooter(`Annonce de ${message.author.tag}`);
 
-  message.channel.send(annonce);  
-  // const annonce = message.mentions.channels.id;
-  // const channel = Isuna.channels.cache.find(ch => ch.name === message.mentions.channels.name);
-  // message.channel.send(annonce);
-  // Isuna.channels(channelId).send(annonce);
+  channel.send(annonce);
 };
 
 module.exports.help = {
   name: "annonce",
   descritpion: "envoie un embed",
+  categorie: 'administration',
   aliases: ['announcement'],
   cooldown: 5,
-  permission: false,
-  args: false
+  args: true,
+  usage: '<Votre annonce>',
+  permission: true,
+  permissionNeeded: 'MENTION_EVERYONE'
 };
