@@ -2,7 +2,7 @@
 
 // variables indispensables
 const { Client, Collection } = require("discord.js");
-const { TOKEN, PREFIX } = require("./config");
+const { TOKEN, PREFIX } = require(process.env);
 const { readdirSync } = require("fs");
 
 // on dis de chercher les commandes dans le dossier commande et après dans les sous dossiers
