@@ -2,9 +2,8 @@
 
 // variables indispensables
 const { Client, Collection } = require("discord.js");
-const { TOKEN, PREFIX } = require(process.env);
 const { readdirSync } = require("fs");
-
+const PREFIX = process.env.PREFIX;
 // on dis de chercher les commandes dans le dossier commande et après dans les sous dossiers
 const Isuna = new Client();
 ["commands", "cooldowns"].forEach(x => Isuna[x] = new Collection());
@@ -74,7 +73,7 @@ Isuna.on("message", message => {
 });
 
 // pour identifier le bot à partir du token dans le dossier config.js
-Isuna.login(TOKEN);
+Isuna.login(process.env.TOKEN);
 
 // quand le bot se start on envoie un essage dans les log et dans le channel isuna-log
 Isuna.on("ready", () => {
