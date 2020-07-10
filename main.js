@@ -32,7 +32,7 @@ Isuna.on("message", message => {
   const commandName = args.shift().toLowerCase();
 
   // raid protection
-  if (message.content === "https://discord.gg/") {
+  if (message.content.includes('https://discord.gg/')) {
     message.delete();
 
     const discordPubLog = new MessageEmbed()
@@ -41,9 +41,9 @@ Isuna.on("message", message => {
       .setDescription(`**PUB**\n **Channel**: ${message.channel} \n **User**: ${message.author.tag} ${message.author.avatarURL}`)
       .setThumbnail(Isuna.avatarURL);
 
-    if (message.guild.id === '558961166882439199') Isuna.channels.cache.get('729607625104425010').send(banlog);
-    else if (message.guild.id === '502490260211630101') Isuna.channels.cache.get('728893953713111040').send(banlog);
-    else if (message.guild.id === '697587714542796891') Isuna.channels.cache.get('697802629715329108').send(banlog);
+    if (message.guild.id === '558961166882439199') Isuna.channels.cache.get('729607625104425010').send(discordPubLog);
+    else if (message.guild.id === '502490260211630101') Isuna.channels.cache.get('728893953713111040').send(discordPubLog);
+    else if (message.guild.id === '697587714542796891') Isuna.channels.cache.get('697802629715329108').send(discordPubLog);
   }
 
   // pour le noice
