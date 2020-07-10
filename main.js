@@ -32,7 +32,7 @@ Isuna.on("message", message => {
   const commandName = args.shift().toLowerCase();
 
   // raid protection
-  if (message.content.includes('https://discord.gg/')) {
+  if (message.content.includes('https://discord.gg/') && message.user.hasPermission('MENTION_EVERYONE')) {
     message.delete();
 
     const discordPubLog = new MessageEmbed()
