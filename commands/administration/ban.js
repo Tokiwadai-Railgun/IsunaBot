@@ -20,6 +20,7 @@ module.exports.run = (Isuna, message, args) => {
   // on cherche dans quel salon à été envoyé le message pour envoyer la ban log au bon endroit
   if (message.guild.id === '558961166882439199') Isuna.channels.cache.get('729607625104425010').send(banlog);
   else if (message.guild.id === '502490260211630101') Isuna.channels.cache.get('728893953713111040').send(banlog);
+  else if (message.guild.id === '697587714542796891') Isuna.channels.cache.get('697802629715329108').send(banlog);
 };
 module.exports.help = {
   name: 'ban',

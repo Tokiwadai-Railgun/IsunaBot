@@ -1,6 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = (Isuna, message, args) => {
+  if (!message.user.hasPermission('MENTION_EVERYONE')) return message.reply("Tu n'a pas la permission d'utiliser cette commande.");
+
   const annonceChannelPing = message.mentions.channels.first();
   const channel = message.guild.channels.cache.get(annonceChannelPing.id);
   const annonce = new MessageEmbed()
@@ -16,12 +18,12 @@ module.exports.run = (Isuna, message, args) => {
 
 module.exports.help = {
   name: "annonce",
-  descritpion: "envoie un embed",
+  description: "envoie un embed personnalisable pour faire une annonce dans un channel spécifique",
   categorie: 'administration',
   aliases: ['announcement'],
   cooldown: 5,
   args: true,
-  usage: '<Votre annonce>',
+  usage: '<un channel> <Votre annonce>',
   permission: true,
   permissionNeeded: 'MENTION_EVERYONE'
 };

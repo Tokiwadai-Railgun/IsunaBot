@@ -1,3 +1,5 @@
+const { MessageEmbed } = require('discord.js');
+
 module.exports.run = async (Isuna, message, args) => {
   // variables user, reason, et muteRole /!\ INDISPENSABLES /!\
   const userPing = message.mentions.users.first();
@@ -19,19 +21,22 @@ module.exports.run = async (Isuna, message, args) => {
       },
       reason: 'manque du role muted'
     });
-
-    message.guild.channels.cache.forEach(async channel => {
-      await channel.updateOverwrite(muteRole, {
-        SEND_MESSAGES: false,
-        CONNECT: false,
-        ADD_REACTIONS: false
-      });
-    });
     isuna_log.send(`un mute rôle à été créer car il étais inéxistant dans ${message.guid.name}`);
   }
 
   await user.roles.add(muteRole.id);
-  message.channel.send(`<@${user.id}> à été mute par <@${message.author.id}> pour la raison : ${reason}.`);
+
+  // kick log
+  const mutelog = new MessageEmbed()
+    .setAuthor(`${user.username} (${user.id}`)
+    .setColor("#ffa500")
+    .setDescription(`**Action**: mute\n **Raison**: ${reason}\n modérateur: ${message.author}`)
+    .setThumbnail(message.author.avatarURL())
+    .setFooter(`mute par ${message.author.username}`, message.author.avatarURL());
+
+  if (message.guild.id === '558961166882439199') Isuna.channels.cache.get('729607625104425010').send(mutelog);
+  else if (message.guild.id === '502490260211630101') Isuna.channels.cache.get('728893953713111040').send(mutelog);
+  else if (message.guild.id === '697587714542796891') Isuna.channels.cache.get('697802629715329108').send(mutelog);
 };
 module.exports.help = {
   name: 'mute',

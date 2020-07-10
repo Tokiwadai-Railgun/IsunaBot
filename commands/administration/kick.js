@@ -18,8 +18,9 @@ module.exports.run = (Isuna, message, args) => {
     .setThumbnail(message.author.avatarURL())
     .setFooter(`Kick par ${message.author.username}`, message.author.avatarURL());
 
-  const logChannel = Isuna.channels.cache.get('728893953713111040');
-  logChannel.send(kickLog);
+  if (message.guild.id === '558961166882439199') Isuna.channels.cache.get('729607625104425010').send(kickLog);
+  else if (message.guild.id === '502490260211630101') Isuna.channels.cache.get('728893953713111040').send(kickLog);
+  else if (message.guild.id === '697587714542796891') Isuna.channels.cache.get('697802629715329108').send(kickLog);
 };
 module.exports.help = {
   name: 'kick',

@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 
 // variables indispensables
-const { Client, Collection } = require("discord.js");
+const { Client, Collection, MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
-const PREFIX = process.env.PREFIX;
+const PREFIX = process.env.PREFIX
 // on dis de chercher les commandes dans le dossier commande et après dans les sous dossiers
 const Isuna = new Client();
 ["commands", "cooldowns"].forEach(x => Isuna[x] = new Collection());
@@ -31,6 +31,22 @@ Isuna.on("message", message => {
   const args = message.content.slice(PREFIX.length).split(/ +/);
   const commandName = args.shift().toLowerCase();
 
+  // raid protection
+  if (message.content === "https://discord.gg/") {
+    message.delete();
+
+    const discordPubLog = new MessageEmbed()
+      .setTitle('PUB')
+      .setColor("#dc143c")
+      .setDescription(`**PUB**\n **Channel**: ${message.channel} \n **User**: ${message.author.tag} ${message.author.avatarURL}`)
+      .setThumbnail(Isuna.avatarURL);
+
+    if (message.guild.id === '558961166882439199') Isuna.channels.cache.get('729607625104425010').send(banlog);
+    else if (message.guild.id === '502490260211630101') Isuna.channels.cache.get('728893953713111040').send(banlog);
+    else if (message.guild.id === '697587714542796891') Isuna.channels.cache.get('697802629715329108').send(banlog);
+  }
+
+  // pour le noice
   if (message.content === "noice") message.channel.send('https://tenor.com/view/noice-nice-click-gif-8843762');
 
   // on cherche le nom de la commande ou un aliace

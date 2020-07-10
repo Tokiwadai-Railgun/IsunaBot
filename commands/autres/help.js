@@ -19,7 +19,7 @@ module.exports.run = (Isuna, message, args) => {
       
     message.channel.send(help);
   } else {
-    const command = Isuna.commands.get(args[0]) || Isuna.commands.find(cmd => cmd.help.aliases && cmd.help.aliases.include(args(0)));
+    const command = Isuna.commands.get(args[0]) || Isuna.commands.find(cmd => cmd.help.aliases && cmd.help.aliases).include(args[0]);
 
     const helpCommande = new MessageEmbed()
       .setColor("#f500ff")

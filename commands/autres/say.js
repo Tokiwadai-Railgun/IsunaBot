@@ -4,7 +4,7 @@ module.exports.run = (Isuna, message, args) => {
 
 module.exports.help = {
   name: 'say',
-  description: 'permet de parler à la place du bot',
+  description: 'Je vais repeter ton message',
   aliases: ['répète'],
   usage: '<Votre_Message>',
   categorie: 'autres',

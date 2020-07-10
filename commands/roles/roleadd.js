@@ -1,11 +1,9 @@
-module.exports.run = (Isuna, message, args) => { 
-  const rName = args.splice(1);
-  const role = message.guild.roles.cache.find(r => r.name === rName.toString());
+module.exports.run = (Isuna, message) => { 
+  const role = message.mentions.roles.first();
   const userPing = message.mentions.users.first(); 
-
+  if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("Tu n'a pas les permissions d'utiliser la commande, demande à un administrateur ou à @[𝔗𝔬𝑘𝔦𝔴𝔞𝔡𝔞𝔦 𝓡𝔞𝔦𝔩𝔤𝔲𝔫] 𝑀𝒾𝓁𝒾𝓂 𝒩𝒶𝓋𝒶#7693 pour plus de précision");
+  if (!userPing) return message.reply("Tu doit ping un membre");
   if (role) { 
-    if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("Tu n'a pas les permissions d'utiliser la commande, demande à un administrateur ou à @[𝔗𝔬𝑘𝔦𝔴𝔞𝔡𝔞𝔦 𝓡𝔞𝔦𝔩𝔤𝔲𝔫] 𝑀𝒾𝓁𝒾𝓂 𝒩𝒶𝓋𝒶#7693 pour plus de précision");
-
     if (message.guild.member(userPing).roles.cache.has(role.id)) {
       message.channel.send(`${userPing} a déjà ce rôle`);
       return;

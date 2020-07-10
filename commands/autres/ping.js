@@ -1,4 +1,4 @@
-module.exports.run = (Isuna, message, args) => {
+module.exports.run = (Isuna, message) => {
   {
     message.channel.send("Pong!");
   }
