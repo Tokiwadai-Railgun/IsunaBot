@@ -38,8 +38,7 @@ Isuna.on("message", message => {
     const discordPubLog = new MessageEmbed()
       .setTitle('PUB')
       .setColor("#dc143c")
-      .setDescription(`**PUB**\n **Channel**: ${message.channel} \n **User**: ${message.author.tag} ${message.author.avatarURL}`)
-      .setThumbnail(Isuna.avatarURL);
+      .setDescription(`**PUB**\n **Channel**: ${message.channel} \n **User**: ${message.author.tag} `);
 
     if (message.guild.id === '558961166882439199') Isuna.channels.cache.get('729607625104425010').send(discordPubLog);
     else if (message.guild.id === '502490260211630101') Isuna.channels.cache.get('728893953713111040').send(discordPubLog);
