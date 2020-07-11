@@ -23,11 +23,11 @@ const loadCommands = (dir = "./commands/") => {
 const loadEvents = (dir = "./events/") => {
   readdirSync(dir).forEach(dirs => {
     const events = readdirSync(`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
-
+    console.log(loadEvents);
     for (const event of events) {
       const evt = require(`${dir}/${dirs}/${event}`);
       const evtName = event.split(".")[0];
-      client.on(evtName, evt.bind(null, Isuna));
+      Isuna.on(evtName, evt.bind(null, Isuna));
     }
   });
 };
