@@ -2,7 +2,7 @@ const { MessageEmbed, Collection } = require('discord.js');
 const PREFIX = process.env.PREFIX;
 
 module.exports = (Isuna, message) => {
-    // Le bot va ignorer ses message et celui des autres bots
+  // Le bot va ignorer ses message et celui des autres bots
   if (message.content.startsWith(PREFIX) || message.author.bot) return;
 
   // on sépare les agrument du préfix et on isole la commande
