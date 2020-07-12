@@ -3,7 +3,6 @@
 // variables indispensables
 const { Client, Collection, MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
-const PREFIX = process.env.PREFIX
 // on dis de chercher les commandes dans le dossier commande et après dans les sous dossiers
 const Isuna = new Client();
 ["commands", "cooldowns"].forEach(x => Isuna[x] = new Collection());
