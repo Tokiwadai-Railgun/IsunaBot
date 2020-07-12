@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = (Isuna, message, args) => {
-  if (!message.user.hasPermission('MENTION_EVERYONE')) return message.reply("Tu n'a pas la permission d'utiliser cette commande.");
+  if (!message.member.hasPermission('MENTION_EVERYONE')) return message.reply("Tu n'a pas la permission d'utiliser cette commande.");
 
   const annonceChannelPing = message.mentions.channels.first();
   const channel = message.guild.channels.cache.get(annonceChannelPing.id);
