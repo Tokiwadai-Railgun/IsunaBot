@@ -23,7 +23,7 @@ module.exports.help = {
   name: 'reactionrole',
   description: 'permet de créer un réaction rôle, en cliquant sur une réaction d\'un message dans un salon vous pouvez obtenir un rôle',
   aliases: ['reactionrole', 'rolereaction'],
-  categorie: '',
+  categorie: '. en dev',
   cooldown: 5,
   permission: true,
   permissionNeeded: 'MANAGE_ROLES',
