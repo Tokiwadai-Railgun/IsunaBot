@@ -54,7 +54,7 @@ module.exports = (Isuna, message) => {
     const cdExpirationTime = tStamp.get(message.author.id) + cdAmount;
 
     if (timeNow < cdExpirationTime) {
-      timeLeft = (cdExpirationTime - timeNow) / 1000;
+      const timeLeft = (cdExpirationTime - timeNow) / 1000;
       return message.reply(`le cooldown de la commande est ${command.help.cooldown} et il te reste encore ${timeLeft.toFixed(0)} seconde(s) avant de ré-utiliser la commande \`\`${command.help.name}\`\``);
     }
   }
