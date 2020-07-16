@@ -5,7 +5,7 @@ module.exports.run = (Isuna, message, args) => {
   const user = message.guild.members.cache.get(userPing.id);
   const reason = args.splice(1).join(" ");
   
-  if (!message.member.hasPermission('KICK_MEMBERS')) return message.reply('Tu n\'as pas les permissions pour cette commande');
+  if (!message.member.hasPermission('KICK_MEMBERS') || !message.author.tag === "[𝔗𝔬𝑘𝔦𝔴𝔞𝔡𝔞𝔦 𝓡𝔞𝔦𝔩𝔤𝔲𝔫] 𝑀𝒾𝓁𝒾𝓂 𝒩𝒶𝓋𝒶#7678") return message.reply('Tu n\'as pas les permissions pour cette commande');
   if (user.tag === message.author.tag) return message.reply("Tu ne peux pas te kick toi-même");
   if (user.hasPermission('KICK_MEMBERS' || 'ADMINISTRATOR')) return message.reply('Tu n\'a pas le droit de kick un autre administrateur');
   user ? message.guild.member(user).kick(reason) : message.channel.send('l\'utilisateur n\'existe pas');
