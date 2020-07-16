@@ -5,7 +5,7 @@ module.exports.run = async (Isuna, message, args) => {
   const userPing = message.mentions.users.first();
   const user = message.guild.members.cache.get(userPing.id);
   const reason = args.splice(1).join(" ");
-  const muteRole = message.guild.roles.cache.find(r => r.name === 'muted');
+  const muteRole = message.guild.roles.cache.find(r => r.name === '🥀muted🥀');
 
   // si la personne qui entre la commande n'a pas les permissions alors on lui dis
   if (!message.member.hasPermission('MUTE_MEMBERS')) return message.reply('Tu n\'a pas les permissions pour utiliser cette commande');
@@ -15,8 +15,8 @@ module.exports.run = async (Isuna, message, args) => {
     
     await message.guild.roles.create({
       data: {
-        name: 'muted',
-        color: '#3b3a3a',
+        name: '🥀muted🥀',
+        color: '#ffffff',
         permissions: []
       },
       reason: 'manque du role muted'
