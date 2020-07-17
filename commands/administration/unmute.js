@@ -20,7 +20,8 @@ module.exports.run = async (Isuna, message, args) => {
   if (message.guild.id === '558961166882439199') Isuna.channels.cache.get('729607625104425010').send(unmutelog);
   else if (message.guild.id === '502490260211630101') Isuna.channels.cache.get('728893953713111040').send(unmutelog);
   else if (message.guild.id === '697587714542796891') Isuna.channels.cache.get('697802629715329108').send(unmutelog);
-  message.channel.send(`<@${user.id}> à été mute par <@${message.author.id}> pour la raison : ${reason}.`);
+  else if (message.guild.id === '732692494621605909') Isuna.channels.cache.get("733582019371728947").send(unmutelog);
+  message.channel.send(`<@${user.id}> à été unmute par <@${message.author.id}> pour la raison : ${reason}.`);
 };
 module.exports.help = {
   name: 'unmute',

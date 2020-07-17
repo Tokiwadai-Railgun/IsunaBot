@@ -34,4 +34,4 @@ const loadEvents = (dir = "./events/") => {
 loadCommands();
 loadEvents();
 
-Isuna.login(process.env.TOKEN);
+Isuna.login('NzI3NDkxNjIzNDMyMzU1OTIy.XvtOTA.hZ_ceoaiBJcKlHJazW-dve0iZjw');

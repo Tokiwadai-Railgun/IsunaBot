@@ -1,5 +1,5 @@
 const { MessageEmbed, Collection } = require('discord.js');
-const PREFIX = process.env.PREFIX;
+const PREFIX = 'izu/';
 
 module.exports = (Isuna, message) => {
   // Le bot va ignorer ses message et celui des autres bots
