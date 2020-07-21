@@ -12,7 +12,8 @@ module.exports.run = (Isuna, message) => {
   const xpnow = xp[message.author.id].xp;
   const xpTotal = xp[message.author.id].xpTotal;
   const lvlNow = xp[message.author.id].niveau;
-  const prochainlvlUp = lvlNow * 100;
+  const prochainlvlUp1 = lvlNow * 100;
+  const prochainlvlUp = prochainlvlUp1 * 2;
   const xpNeededForLevelUp = prochainlvlUp - xpnow;
 
   const nivEmbed = new MessageEmbed()
@@ -25,10 +26,10 @@ module.exports.run = (Isuna, message) => {
   message.channel.send(nivEmbed);
 };
 module.exports.help = {
-  name: 'Seulement Hazukumi',
+  name: 'level',
   description: 'donne le level de l\'utilisateur',
   aliases: ['lvl', 'niv', 'niveau'],
-  categorie: 'level',
+  categorie: 'Seulement Hazukumi',
   cooldown: 5,
   permission: false,
   args: false
