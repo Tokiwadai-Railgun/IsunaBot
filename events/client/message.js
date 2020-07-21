@@ -1,5 +1,8 @@
 const { MessageEmbed, Collection } = require('discord.js');
 const PREFIX = 'izu/';
+const xp = require('../../exp.json');
+const fs = require('fs');
+const monnaie = require('../../monnaie.json');
 
 module.exports = (Isuna, message) => {
   // Le bot va ignorer ses message et celui des autres bots
@@ -21,6 +24,50 @@ module.exports = (Isuna, message) => {
     if (message.guild.id === '558961166882439199') Isuna.channels.cache.get('729607625104425010').send(discordPubLog);
     else if (message.guild.id === '502490260211630101') Isuna.channels.cache.get('728893953713111040').send(discordPubLog);
     else if (message.guild.id === '697587714542796891') Isuna.channels.cache.get('697802629715329108').send(discordPubLog);
+    return;
+  }
+
+  // système d'xp
+  if (message.guild.id === '732692494621605909') { 
+    const addXp = Math.floor(Math.random() * 5) + 1;
+    console.log(`xp gagné : ${addXp}`);
+
+    if (!xp[message.author.id]) {
+      xp[message.author.id] = {
+        xp: 0,
+        xpTotal: 0,
+        niveau: 1
+      };
+    }
+
+    const xpDuNiveau = xp[message.author.id].niveau * 100;
+    const xpactuelle = xp[message.author.id].xp;
+    console.log(`xpactuelle : ${xpactuelle}`);
+    const niveauactuelle = xp[message.author.id].niveau;
+    console.log(`niveauactuelle: ${niveauactuelle}`);
+    const xpNeeded1 = niveauactuelle * 100;
+    const xpNeeded = xpNeeded1 + xpDuNiveau;
+    console.log(`xpNeeded: ${xpNeeded}`);
+    xp[message.author.id].xp = xpactuelle + addXp;
+    xp[message.author.id].xpTotal = xpactuelle + addXp;
+
+    if (xpNeeded <= xpactuelle) {
+      xp[message.author.id].niveau += 1;
+      message.reply(`Bravo tu est monté niveau ${niveauactuelle + 1}`);
+      xp[message.author.id].xp - xpNeeded;
+      console.log(xp[message.author.id].xp);
+    }
+
+    fs.writeFile('./exp.json', JSON.stringify(xp), err => {
+      if (err) console.log(err);
+    });
+  }
+
+  // système de monnaie
+  if (!monnaie[message.author.id]) {
+    monnaie[message.author.id] = {
+      cash: 0
+    };
   }
 
   // pour le noice

@@ -1,24 +1,24 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, MessageReaction } = require("discord.js");
 
 module.exports.run = (Isuna, message, args) => {
-  const emoji = args[0];
-  const role = message.mentions.roles.first();
-  const replymessage = args.splice(2).join(" ");
+  const replymessage = args.splice(0).join(" ");
 
   if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply('Tu n\' a pas la permission d\'utiliser cette commande');
-  if (!emoji) return message.replu("Tu doit donner un emoji qui servira de réaction");
   if (!replymessage) return message.reply("Tu doit donner un message sur lequel sera la réactions");
 
   message.channel.send(replymessage).then( async msg => {
-    await msg.react(emoji);
-  })
+    await msg.react('733702120431157259');
+
+    if (msg.messageReactionAdd) {
+    }
+  });
 };
 
 module.exports.help = {
-  name: 'reactionrole',
+  name: 'rulecheck',
   description: 'permet de créer un réaction role',
-  categorie: 'roles',
-  aliases: ['rolereaction'],
+  categorie: '',
+  aliases: ['tfdgyh'],
   permission: true,
   permissionNeeded: ["MANAGE_ROLES"],
   cooldown: 5,

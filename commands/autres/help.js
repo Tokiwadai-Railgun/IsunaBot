@@ -13,13 +13,13 @@ module.exports.run = (Isuna, message, args) => {
     for (const categorie of categoriesList) {
       help.addField(
         `${categorie}`,
-        `\`\`${Isuna.commands.filter(cat => cat.help.categorie === categorie.toLowerCase()).map(cmd => cmd.help.name).join("`` ``")}\`\``
+        `\`\`${Isuna.commands.filter(cat => cat.help.categorie === categorie.toLowerCase()).map(cmd => cmd.help.name).join("``, ``")}\`\``
       );
     }
       
     message.channel.send(help);
   } else {
-    const command = Isuna.commands.get(args[0]) || Isuna.commands.find(cmd => cmd.help.aliases && cmd.help.aliases).include(args[0]);
+    const command = Isuna.commands.get(args[0]) || Isuna.commands.find(cmd => cmd.help.aliases && cmd.help.aliases.includes(args[0]));
 
     const helpCommande = new MessageEmbed()
       .setColor("#f500ff")
@@ -27,7 +27,7 @@ module.exports.run = (Isuna, message, args) => {
       .addField("Description de la commande :", `${command.help.description} (cooldown: ${command.help.cooldown} secs)`)
       .addField("Utilisation : ", command.help.usage ? `isu ${command.help.name} ${command.help.usage}` : `${command.help.name}`, true);
 
-    if (command.help.aliases.lenght > 1) helpCommande.addField("Alias : ", `${command.help.aliases.join(', ')}, true`);
+    if (command.help.aliases.length > 1) helpCommande.addField("Alias : ", `${command.help.aliases.join(', ')}, true`);
     
     message.channel.send(helpCommande);
   }
