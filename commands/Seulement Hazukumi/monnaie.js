@@ -37,9 +37,9 @@ module.exports.run = (Isuna, message, args) => {
 };
 module.exports.help = {
   name: 'monnaie',
-  description: 'donne de la monnaie à un utilisateur',
-  aliases: ['lvl', 'niv', 'niveau'],
-  categorie: 'Seulement Hazukumi',
+  description: 'permet de set la monnaie d\'un utilisateur, reservée aux admins',
+  aliases: ['monnaie'],
+  categorie: 'seulement hazukumi',
   cooldown: 5,
   permission: true,
   args: true

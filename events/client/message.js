@@ -39,11 +39,9 @@ module.exports = (Isuna, message) => {
       };
     }
 
-    const xpDuNiveau = xp[message.author.id].niveau * 100;
     const xpactuelle = xp[message.author.id].xp;
     const niveauactuelle = xp[message.author.id].niveau;
-    const xpNeeded1 = niveauactuelle * 100;
-    const xpNeeded = xpNeeded1 + xpDuNiveau;
+    const xpNeeded = niveauactuelle * 100;
 
     xp[message.author.id].xp = xpactuelle + addXp;
     xp[message.author.id].xpTotal = xpactuelle + addXp;
@@ -51,8 +49,9 @@ module.exports = (Isuna, message) => {
     if (xpNeeded <= xpactuelle) {
       xp[message.author.id].niveau += 1;
       message.reply(`Bravo tu est monté niveau ${niveauactuelle + 1}`);
-      xp[message.author.id].xp - xpNeeded;
+      xp[message.author.id].xp -= xpNeeded;
       console.log(xp[message.author.id].xp);
+      monnaie[message.author.id].cash += 10;
     }
 
     fs.writeFile('./exp.json', JSON.stringify(xp), err => {

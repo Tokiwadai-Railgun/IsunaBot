@@ -27,7 +27,7 @@ module.exports.run = (Isuna, message, args) => {
       .addField("Description de la commande :", `${command.help.description} (cooldown: ${command.help.cooldown} secs)`)
       .addField("Utilisation : ", command.help.usage ? `isu ${command.help.name} ${command.help.usage}` : `${command.help.name}`, true);
 
-    if (command.help.aliases.length > 1) helpCommande.addField("Alias : ", `${command.help.aliases.join(', ')}, true`);
+    if (command.help.aliases.length > 1) helpCommande.addField("Alias : ", `${command.help.aliases.join(', ')}`);
     
     message.channel.send(helpCommande);
   }
