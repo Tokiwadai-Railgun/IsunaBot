@@ -34,9 +34,9 @@ module.exports.run = (Isuna, message) => {
   message.channel.send(NiveauEmbed);
 };
 module.exports.help = {
-  name: 'info',
+  name: 'information',
   description: "Donne les informations de l'utilisateur en rapport avec le serveur : monnaie, lvl et etc...",
-  aliases: ['i', 'inf'],
+  aliases: ['info', 'inf', 'inv', 'inventaire'],
   categorie: 'seulement hazukumi',
   cooldown: 5,
   permission: false,
