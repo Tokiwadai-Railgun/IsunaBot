@@ -10,6 +10,7 @@ module.exports.run = async (Isuna, message, args) => {
 
   // si la personne qui entre la commande n'a pas les permissions alors on lui dis
   if (!message.member.hasPermission('MUTE_MEMBERS')) return message.reply('Tu n\'a pas les permissions pour utiliser cette commande');
+  if (!message.mentions) return message.reply('tu doit mentionner quelqu\'un');
   // si je rôle n'existe pas alors on le créer et on envoie une log dans le salon
   if (!muteRole) {
     await message.guild.roles.create({

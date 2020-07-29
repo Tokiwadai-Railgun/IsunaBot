@@ -13,21 +13,19 @@ module.exports.run = (Isuna, message, args) => {
     };
   }
 
-  const cashActuelle = monnaie[userPing.id].cash;
-
   if (!message.guild.id === '732692494621605909') return message.reply("Tu n'est pas sur le bon serveur pour utiliser cette commande.");
-  if (!addRemove === "add") return message.reply("tu doit spécifier add ou remove");
   if (!message.member.roles.has === "monnaie manajer") return message.channel.reply("-_- tu essaie d'utiliser cette commande même so ti n'a pas la permission. T'est trop débile.");
-
+  if (!message.mentions) return message.reply('tu doit mentionner quelqu\'un');
   if (addRemove === "set") {
+    if (!message.member.roles.cache.get('738071075241590816')) return message.reply("Tu n'a pas les permissions d'utiliser cette commande")
     monnaie[userPing.id].cash = montant;
 
     const addEmbed = new MessageEmbed()
       .setAuthor(`${userPing.username} (${userPing.id})`, userPing.avatarURL())
       .setColor("#39831f")
-      .setDescription(`${userPing.username} à bien reçus ${montant} de monnaie, il a maintenant ${monnaie[userPing.id].cash}`)
+      .setDescription(`${userPing.username} a maintenant ${monnaie[userPing.id].cash}`)
       .setThumbnail(message.author.avatarURL())
-      .setFooter(`ajouté par par ${message.author.username}`);
+      .setFooter(`ajouté par ${message.author.username}`);
 
     message.reply(addEmbed);
   }

@@ -4,6 +4,7 @@ module.exports.run = async (Isuna, message, args) => {
   const user = await Isuna.users.fetch(args[0]);
   const reason = args.splice(1).join(" ") || 'Aucune raison spécifiée';
   if (!message.member.hasPermission('BAN_MEMBERS')) return message.reply('Tu n\'as pas les permissions pour cette commande');
+  if (!message.mentions) return message.reply('tu doit mentionner quelqu\'un');
   if (!user) return message.reply("L'utilisateur n'existe pas");
   message.guild.members.unban(user);
   // message de log

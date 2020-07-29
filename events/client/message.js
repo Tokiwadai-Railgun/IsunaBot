@@ -14,7 +14,7 @@ module.exports = (Isuna, message) => {
 
   // raid protection
   if (message.content.includes('https://discord.gg/') && !message.member.hasPermission('MENTION_EVERYONE')) {
-    message.delete(`${userPing.username} (${user.id})`, userPing.avatarURL());
+    message.delete();
 
     const discordPubLog = new MessageEmbed()
       .setTitle('PUB')
@@ -30,7 +30,7 @@ module.exports = (Isuna, message) => {
   // système d'xp
   if (message.guild.id === '732692494621605909') { 
     const addXp = Math.floor(Math.random() * 5) + 1;
-
+    
     if (!xp[message.author.id]) {
       xp[message.author.id] = {
         xp: 0,
@@ -38,14 +38,15 @@ module.exports = (Isuna, message) => {
         niveau: 1
       };
     }
-
+    
     const xpactuelle = xp[message.author.id].xp;
     const niveauactuelle = xp[message.author.id].niveau;
-    const xpNeeded = niveauactuelle * 100;
+    const xpNeeded = niveauactuelle * 300;
+
 
     xp[message.author.id].xp = xpactuelle + addXp;
     xp[message.author.id].xpTotal = xpactuelle + addXp;
-
+    
     if (xpNeeded <= xpactuelle) {
       xp[message.author.id].niveau += 1;
       message.reply(`Bravo tu est monté niveau ${niveauactuelle + 1}`);
@@ -53,7 +54,6 @@ module.exports = (Isuna, message) => {
       console.log(xp[message.author.id].xp);
       monnaie[message.author.id].cash += 10;
     }
-
     fs.writeFile('./exp.json', JSON.stringify(xp), err => {
       if (err) console.log(err);
     });

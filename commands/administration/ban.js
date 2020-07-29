@@ -6,6 +6,7 @@ module.exports.run = (Isuna, message, args) => {
   const reason = args.splice(1).join(" ") || 'Aucune raison spécifiée';
   if (!message.member.hasPermission('BAN_MEMBERS')) return message.reply('Tu n\'as pas les permissions pour cette commande');
   if (user.tag === message.author.tag) return message.reply("Tu ne peux pas te ban toi-même");
+  if (!message.mentions) return message.reply('tu doit mentionner quelqu\'un');
   if (user.hasPermission('BAN_MEMBERS' || 'ADMINISTRATOR')) return message.reply('Tu n\'a pas le droit de ban un autre administrateur');
   user ? message.guild.member(user).ban(reason) : message.channel.send('l\'utilisateur n\'existe pas');
 

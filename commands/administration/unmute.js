@@ -8,7 +8,7 @@ module.exports.run = async (Isuna, message, args) => {
   const muteRole = message.guild.roles.cache.find(r => r.name === 'muted');
 
   if (!message.member.hasPermission('MUTE_MEMBERS')) return message.reply('Tu n\'a pas les permissions pour utiliser cette commande');
-
+  if (!message.mentions) return message.reply('tu doit mentionner quelqu\'un');
   await user.roles.remove(muteRole.id);
   const unmutelog = new MessageEmbed()
     .setAuthor(`${user.username} (${user.id}`)
