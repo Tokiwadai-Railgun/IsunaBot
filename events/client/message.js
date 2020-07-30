@@ -1,7 +1,7 @@
 const { MessageEmbed, Collection } = require('discord.js');
 const PREFIX = 'izu/';
-const xp = require(process.env.XP);
-const fs = require('../../exp.json');
+const xp = require('../../exp.json');
+const fs = require('fs');
 const monnaie = require('../../monnaie.json');
 
 module.exports = (Isuna, message) => {
