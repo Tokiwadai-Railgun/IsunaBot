@@ -2,10 +2,11 @@ const monnaie = require('../../monnaie.json');
 const { MessageEmbed } = require('discord.js');
 const fs = require('fs');
 
-module.exports.run = (Isuna, message, args) => {
+module.exports.run = async (Isuna, message, args) => {
   const addRemove = args[0];
   const montant1 = args[1];
-  const montant = Integer.parseInt(montant1);
+  const montant = await montant1();
+  parseInt(montant1);
   const userPing = message.mentions.users.first();
 
   if (!monnaie[userPing.id]) {

@@ -1,8 +1,8 @@
 const { MessageEmbed, Collection } = require('discord.js');
 const PREFIX = 'izu/';
-const xp = require('../../exp.json');
+const xp = require(process.env.XP);
 const fs = require('fs');
-const monnaie = require('../../monnaie.json');
+const monnaie = require(process.env.monnaie);
 
 module.exports = (Isuna, message) => {
   // Le bot va ignorer ses message et celui des autres bots
@@ -51,7 +51,6 @@ module.exports = (Isuna, message) => {
       xp[message.author.id].niveau += 1;
       message.reply(`Bravo tu est monté niveau ${niveauactuelle + 1}`);
       xp[message.author.id].xp -= xpNeeded;
-      console.log(xp[message.author.id].xp);
       monnaie[message.author.id].cash += 10;
     }
     fs.writeFile('./exp.json', JSON.stringify(xp), err => {

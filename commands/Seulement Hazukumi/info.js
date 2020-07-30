@@ -19,16 +19,16 @@ module.exports.run = (Isuna, message) => {
   const cashNow = monnaie[message.author.id].cash;
 
   const NiveauEmbed = new MessageEmbed()
-    .setAuthor(message.author.name, message.author.avatarURL())
+    .setAuthor(message.author.username, message.author.avatarURL())
     .setColor('#1a5286')
     .addField('Niveau', lvlNow, true)
     .addField('Expérience', xpnow, true)
     .setFooter(`Tu a besoin de ${xpNeededForLevelUp} pour level up une prochaine fois`);
 
   const GoldEmbed = new MessageEmbed()
-    .setAuthor(message.author.name, message.author.avatarURL())
+    .setAuthor(message.author.username, message.author.avatarURL())
     .setColor('#1a5286')
-    .addField('Monnaie 💴', cashNow, true)
+    .addField('💴 Monnaie', cashNow, true)
     .addField('Items', 'Non Disponnible pour le moment', true);
 
   message.channel.send(GoldEmbed);
