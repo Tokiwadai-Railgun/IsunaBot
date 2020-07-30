@@ -4,7 +4,8 @@ const fs = require('fs');
 
 module.exports.run = (Isuna, message, args) => {
   const addRemove = args[0];
-  const montant = args[1];
+  const montant1 = args[1];
+  const montant = Integer.parseInt(montant1);
   const userPing = message.mentions.users.first();
 
   if (!monnaie[userPing.id]) {

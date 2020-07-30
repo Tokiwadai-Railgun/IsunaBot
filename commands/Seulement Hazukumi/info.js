@@ -11,7 +11,8 @@ module.exports.run = (Isuna, message) => {
 
   if (!monnaie[message.author.id]) {
     monnaie[message.author.id] = {
-      cash: 0
+      cash: 0,
+      random: 0
     };
   }
   // Monnaie
@@ -27,7 +28,7 @@ module.exports.run = (Isuna, message) => {
   const GoldEmbed = new MessageEmbed()
     .setAuthor(message.author.name, message.author.avatarURL())
     .setColor('#1a5286')
-    .addField('Monnaie', cashNow, true)
+    .addField('Monnaie 💴', cashNow, true)
     .addField('Items', 'Non Disponnible pour le moment', true);
 
   message.channel.send(GoldEmbed);
