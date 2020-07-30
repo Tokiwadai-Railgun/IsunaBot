@@ -1,8 +1,8 @@
 const { MessageEmbed, Collection } = require('discord.js');
 const PREFIX = 'izu/';
 const xp = require(process.env.XP);
-const fs = require('fs');
-const monnaie = require(process.env.monnaie);
+const fs = require('../../exp.json');
+const monnaie = require('../../monnaie.json');
 
 module.exports = (Isuna, message) => {
   // Le bot va ignorer ses message et celui des autres bots
