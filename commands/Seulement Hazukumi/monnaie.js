@@ -5,8 +5,7 @@ const fs = require('fs');
 module.exports.run = async (Isuna, message, args) => {
   const addRemove = args[0];
   const montant1 = args[1];
-  const montant = await montant1();
-  parseInt(montant1);
+  const montant = parseInt(montant1);
   const userPing = message.mentions.users.first();
 
   if (!monnaie[userPing.id]) {
@@ -22,10 +21,22 @@ module.exports.run = async (Isuna, message, args) => {
     if (!message.member.roles.cache.get('738071075241590816')) return message.reply("Tu n'a pas les permissions d'utiliser cette commande")
     monnaie[userPing.id].cash = montant;
 
-    const addEmbed = new MessageEmbed()
+    const setEmbed = new MessageEmbed()
       .setAuthor(`${userPing.username} (${userPing.id})`, userPing.avatarURL())
       .setColor("#39831f")
       .setDescription(`${userPing.username} a maintenant ${monnaie[userPing.id].cash}`)
+      .setThumbnail(message.author.avatarURL())
+      .setFooter(`ajouté par ${message.author.username}`);
+
+    message.reply(setEmbed);
+  } else if (addRemove === "add") {
+    if (!message.member.roles.cache.get('738071075241590816')) return message.reply("Tu n'a pas les permissions d'utiliser cette commande")
+    monnaie[userPing.id].cash += montant;
+
+    const addEmbed = new MessageEmbed()
+      .setAuthor(`${userPing.username} (${userPing.id})`, userPing.avatarURL())
+      .setColor("#39831f")
+      .setDescription(`${userPing.username} a reçus ${montant} et a maintenant ${monnaie[userPing.id].cash}`)
       .setThumbnail(message.author.avatarURL())
       .setFooter(`ajouté par ${message.author.username}`);
 
