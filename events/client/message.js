@@ -51,6 +51,12 @@ module.exports = (Isuna, message) => {
       xp[message.author.id].niveau += 1;
       message.reply(`Bravo tu est monté niveau ${niveauactuelle + 1}`);
       xp[message.author.id].xp -= xpNeeded;
+      // +10 monnaie en cas de level up
+      if (!monnaie[message.author.id]) {
+        monnaie[message.author.id] = {
+          cash: 0
+        };
+      }
       monnaie[message.author.id].cash += 10;
     }
     fs.writeFile('./exp.json', JSON.stringify(xp), err => {

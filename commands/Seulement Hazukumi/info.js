@@ -11,8 +11,7 @@ module.exports.run = (Isuna, message) => {
 
   if (!monnaie[message.author.id]) {
     monnaie[message.author.id] = {
-      cash: 0,
-      random: 0
+      cash: 0
     };
   }
   // Monnaie
