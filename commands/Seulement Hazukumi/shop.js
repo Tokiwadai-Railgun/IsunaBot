@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const {readdirSync } = require("fs");
-const itemList = readdirSync("../../items");
+const itemList = readdirSync("../../items.json");
 
 module.exports.run = (Isuna, message) => {
   const shopEmbed = new MessageEmbed()
