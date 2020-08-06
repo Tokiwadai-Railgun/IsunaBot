@@ -1,6 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const {readdirSync } = require("fs");
-const itemList = readdirSync("../../items.json");
+const { readdirSync } = require("fs");
 
 module.exports.run = (Isuna, message) => {
   const shopEmbed = new MessageEmbed()
@@ -18,7 +17,7 @@ module.exports.help = {
   name: 'shop',
   description: "affiche le shop du serveur",
   aliases: ['shop'],
-  categorie: 'seulement hazukumi',
+  categorie: '. en dev',
   cooldown: 5,
   permission: false,
   args: false
