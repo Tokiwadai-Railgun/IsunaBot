@@ -2,6 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const { readdirSync } = require("fs");
 
 module.exports.run = (Isuna, message) => {
+  return message.channel.reply ('la commande n\'est pas disponnible pour le moment')
   const shopEmbed = new MessageEmbed()
     .setAuthor(message.setAuthor.id, message.author.avatarURL())
     .setColor("#39831f")
