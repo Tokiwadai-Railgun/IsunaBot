@@ -12,7 +12,7 @@ module.exports.run = (Isuna, message) => {
     shopEmbed.addField(
     //  ``\`\`${Isuna.commands.filter(cat => cat.help.categorie === categorie.toLowerCase()).map(cmd => cmd.help.name).join("``, ``")}\`\```
     );
-}
+  }
 };
 module.exports.help = {
   name: 'shop',
