@@ -28,41 +28,7 @@ module.exports = (Isuna, message) => {
   }
 
   // système d'xp
-  if (message.guild.id === '732692494621605909') { 
-    const addXp = Math.floor(Math.random() * 5) + 1;
-    
-    if (!xp[message.author.id]) {
-      xp[message.author.id] = {
-        xp: 0,
-        xpTotal: 0,
-        niveau: 1
-      };
-    }
-    
-    const xpactuelle = xp[message.author.id].xp;
-    const niveauactuelle = xp[message.author.id].niveau;
-    const xpNeeded = niveauactuelle * 300;
 
-
-    xp[message.author.id].xp = xpactuelle + addXp;
-    xp[message.author.id].xpTotal = xpactuelle + addXp;
-    
-    if (xpNeeded <= xpactuelle) {
-      xp[message.author.id].niveau += 1;
-      message.reply(`Bravo tu est monté niveau ${niveauactuelle + 1}`);
-      xp[message.author.id].xp -= xpNeeded;
-      // +10 monnaie en cas de level up
-      if (!monnaie[message.author.id]) {
-        monnaie[message.author.id] = {
-          cash: 0
-        };
-      }
-      monnaie[message.author.id].cash += 10;
-    }
-    fs.writeFile('./exp.json', JSON.stringify(xp), err => {
-      if (err) console.log(err);
-    });
-  }
 
   // pour le noice
   if (message.content === "noice") message.channel.send('https://tenor.com/view/noice-nice-click-gif-8843762');

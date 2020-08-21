@@ -1,13 +1,12 @@
+const config = require("../../config.json");
+console.log(0);
 module.exports = (user, reaction) => {
-  console.log(1);
-  const message = reaction.message;
-  if (user.bot) return;
-  const roleName = '🎇Membre🎇';
-  const role = reaction.message.guild.roles.cache.get('732868683679924344');
-  const member = reaction.message.guild.members.cache.get(reaction.message.member.id);
-  console.log(2);
-  
-  if (message.id === '733397344468598936') {
-    console.log(reaction);
-  }
+  console.log(1); 
+  if (user.bot || !reaction.message.guild) return;
+  const reactionRoleElem = config.reactionrole[reaction.message.id];
+  if (!reactionRoleElem) return;
+  const prop = reaction.emoji.id ? "id" : " name";
+  const emoji = reactionRoleElem.emoji.find(emoji => emoji[prop] === reaction.emoji[prop]);
+  if (emoji) reaction.message.guild.member(user).roles.add(emoji.roles);
+  else reaction.users.remove(user);
 }; 
