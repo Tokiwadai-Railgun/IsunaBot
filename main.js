@@ -182,4 +182,4 @@ Isuna.on("messageReactionAdd", (reaction, user) => {
 });
 loadCommands();
 
-Isuna.login('NzI3NDkxNjIzNDMyMzU1OTIy.XvtOTA.hZ_ceoaiBJcKlHJazW-dve0iZjw');
+Isuna.login('TOKEN');
